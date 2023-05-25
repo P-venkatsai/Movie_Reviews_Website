@@ -1,0 +1,311 @@
+/*navbar*/
+.navbar
+{
+    box-shadow: 2px 10px 5px powderblue;
+    margin-bottom: 10px;
+    min-width: 100%;
+}
+body
+{
+    background-image:url("");
+    background-repeat: no-repeat;
+    background-size:contain;
+    overflow-x: hidden;
+}
+.navbar li:hover
+{
+    color: white;
+}
+#search-1
+{
+    width: 100%;
+}
+#appen
+{
+    display: inline;
+}
+@media (max-width:768px)
+{
+    #navbarlogo
+    {
+        margin: auto;
+        margin-bottom: 3px;
+    }
+    #search-1
+    {
+        width: 40%;
+    }
+}
+/*reacent realase*/
+.card-title
+{
+    font-family: 'Oswald', sans-serif;
+    color:rgba(255,255,255,0.8) !important;
+}
+#cardbody
+{
+    background-color:black;
+}
+.stars-outer
+{
+    position: relative;
+    display:inline-block;
+}
+.stars-inner
+{
+    position: absolute;
+    top:0;
+    left:0;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+}
+.stars-outer::before
+{
+    content: '\f005 \f005 \f005 \f005 \f005'; /* You should use \ and not /*/
+    font-family: "Font Awesome 5 Free"; /* This is the correct font-family*/
+    font-size:15px;
+    font-weight: 900;
+    color: grey;
+}
+.stars-inner::before
+{
+    content: '\f005 \f005 \f005 \f005 \f005'; /* You should use \ and not /*/
+    font-family: "Font Awesome 5 Free"; /* This is the correct font-family*/
+    font-size:15px;
+    font-weight: 900;
+    color: orange;
+}
+.outer-one
+{
+    position: relative;
+    display:inline-block;
+}
+.inner-one
+{
+    position: absolute;
+    top:0;
+    left:0;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 0;
+}
+.outer-one::before
+{
+    content: '\f005'; /* You should use \ and not /*/
+    font-family: "Font Awesome 5 Free"; /* This is the correct font-family*/
+    font-size:15px;
+    font-weight: 900;
+    color: grey;
+}
+.inner-one::before
+{
+    content: '\f005'; /* You should use \ and not /*/
+    font-family: "Font Awesome 5 Free"; /* This is the correct font-family*/
+    font-size:15px;
+    font-weight: 900;
+    color: orange;
+}
+@media (max-width:576px)
+{
+    #cardtitle
+    {
+        font-size: 1px;
+    }
+    
+}
+.carousel-inner
+{
+    height: 150px !important;
+}
+#imagecar1,#imagecar2,#imagecar3
+{
+    width: 100%;
+    height:150px!important;
+}
+@media (max-width:768px)
+{
+    .carousel-inner
+    {
+        height: 100px !important;
+    }
+    #imagecar1,#imagecar2,#imagecar3
+    {
+        width: 100%;
+        height:100px!important;
+    }  
+}
+#scrollable
+{
+    flex-wrap: nowrap;
+    overflow: auto;
+    white-space: nowrap;
+}
+#scrollablecontainer
+{
+    background-color: black;
+    margin-left: 0px;
+    margin-right: 0px;
+    width: 100%;
+}
+#scrollable::-webkit-scrollbar
+{
+    display: none;
+}
+/*telugu hindi english movies*/
+#movie-name,#movie-name-head
+{
+    font-family: 'Oswald', sans-serif;
+}
+#movie-name-head
+{
+    padding-left: 5px;
+    border-left: 4px red solid;
+}
+#movie-row
+{
+    flex-wrap: nowrap;
+    overflow: auto;
+    white-space: nowrap;
+}
+#movie-row::-webkit-scrollbar
+{
+    display: none;
+}
+.card-title::-webkit-scrollbar
+{
+    display:none;
+}
+@media (max-width:480px)
+{
+    .coll
+    {
+        min-width:45%!important;
+        max-width: 45%!important;
+        padding-left: 0.5rem!important;
+        padding-right: 0.5rem!important;
+    }
+    #search-movies
+    {
+        display: none
+    }
+    #second-search
+    {
+        display: none;
+    }
+}
+@media (min-width:481px) and (max-width:767px)
+{
+    #search-movies
+    {
+        display: none
+    }
+    .coll
+    {
+        min-width:30%!important;
+        max-width: 30%!important;
+        padding-left: 0.5rem!important;
+        padding-right: 0.5rem!important;
+    }
+    #second-search
+    {
+        display: none;
+    }
+}
+@media (min-width:768px) and (max-width:1024px)
+{
+    .coll
+    {
+        min-width:19%!important;
+        max-width: 19%!important;
+        padding-left: 0.5rem!important;
+        padding-right: 0.5rem!important;
+    }
+    #first-search
+    {
+      display: none;
+    }
+}
+@media (min-width:1025px)
+{
+    .coll
+    {
+        min-width:16.66667%!important;
+        max-width: 16.66667%!important;
+    }
+    #first-search
+    {
+      display: none;
+    }
+}
+.coll:hover
+{
+    background-color:rgb(202, 211, 224);
+    color:#3976DC;
+    cursor: pointer;
+}
+.coll .lead
+{
+    margin-bottom: 0!important;
+    overflow: auto;
+    white-space: nowrap;
+}
+.coll .lead::-webkit-scrollbar
+{
+  display: none;
+}
+.colla img
+{
+    min-height: 199px!important;
+    max-height: 200px!important;
+}
+#searchModal
+{
+    overflow-y: auto!important;
+}
+@media (max-width:480)
+{
+#search-name
+{
+    top:0px!important;
+}
+}
+strong:hover
+{
+ color:blue;
+}
+.slick-prev:before
+{
+ margin-left: 10px;
+ color:white;
+}
+.slick-next::before
+{
+    margin-left:-15px;
+}
+#trailer-card
+{
+ border: 0px solid black!important;  
+ background-color:transparent;
+}
+#trailer-container
+{
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#vedio-play-body
+{
+  background-color: black;
+}
+.slick-dots li button:before
+{
+  color:white;
+}
+#movie-name-head:hover
+{
+    cursor: pointer;
+}
+.list-group-item:hover
+{
+    cursor: pointer;
+}

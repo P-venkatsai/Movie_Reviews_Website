@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+        crossorigin="anonymous">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.27.0/moment-with-locales.min.js">
+        </script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+        <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="hai.css">   
+        <link rel="stylesheet" href="movie-details.css">       
+        <title>Rating Website</title>
+        
+</head>
+<body >
+     <!--Navbar-->
+     <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top">
+      <div class="container">
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarr">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <a href="#" class="navbar-brand" id="navbarlogo">
+            <img src="img/mlogo.png" class="img-fluid" height="100px" width="50px">
+              Movie Review
+          </a>
+          <button class="btn btn-secondary" id="first-search" data-toggle="modal" data-target="#searchModal"><i class="fa fa-search"></i></button>
+          <div class="collapse navbar-collapse d-md-inline" id="navbarr">
+          <ul class="navbar-nav ml-auto">
+              <li class="nav-item">
+                <a href="index.html" class="nav-link">Home</a>
+              </li>
+          </ul>
+          <button class="btn btn-secondary ml-3" id="second-search" data-toggle="modal" data-target="#searchModal"><i class="fa fa-search"></i></button>
+          </div>
+      </div>
+    </nav>
+      <!--Login moal-->
+      <div class="modal" id="loginModal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Login</h5>
+                <button class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="form-group">
+                    <label for="username" >Username/Email</label>
+                    <input type="text" id="signinusername" placeholder="Username/Email" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label for="password" >Password</label>
+                    <input type="password" id="signinpassword" placeholder="Password" class="form-control">
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button class="btn btn-primary" data-dismiss="modal" id="signin">Sign In</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--Sign Up Modal-->
+      <div class="modal" id="signupmodal">
+          <div class="modal-dialog">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <div class="modal-title">SIGN UP</div>
+                      <button class="close" data-dismiss="modal">&times;</button>
+                  </div>
+                  <div class="modal-body">
+                      <form>
+                        <div class="form-group">
+                          <label for="username">Username</label>
+                          <input type="text" placeholder="Username" id="signupusername" class="form-control">
+                          <small class="" style="color: red;" id="signupusernamevalid"></small>
+                        </div>
+                        <div class="form-group">
+                          <label for="Email">Email</label>
+                          <input type="Email" placeholder="Email" class="form-control" id="signupemail">
+                          <small class="form-text text-red"  id="signupemailvalid">Your email will not ever be shared</small>
+                        </div>   
+                        <div class="form-group">
+                          <label for="password">Password</label>
+                          <input type="password" placeholder="Enter Password" class="form-control" id="signuppassword">
+                          <small class="form-text" style="color: red;" id="signuppasswordvalid"></small>
+                        </div>
+                        <div class="form-group">
+                          <label for="password">Confirm Password</label>
+                          <input type="password" placeholder="Retype Password" class="form-control" id="signupconfirmpassword">
+                          <small class="form-text" id="signupretypepasswordvalid"></small>
+                        </div>   
+                        <button class="btn btn-primary btn-block" id="signup" disabled="true">Submit</button>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!--search modal-->
+      <div class="container">
+        <div class="modal" id="searchModal">
+          <div class="modal-dialog">
+            <div class="modal-content" style="background-color: rgba(255,255,255,0);">
+              <div class="modal-header">
+                <a href="#" class="navbar-brand" id="navbarlogo">
+                  <img src="img/mlogo.png" class="img-fluid" height="100px" width="50px">
+                    Movie Review
+                </a>
+                <button class="close" data-dismiss="modal">&times;</button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="form-group" id="appen">
+                    <input type="text" id="movie-search1" placeholder="Search Movies" 
+                    class="form-control">
+                  </div>
+                </form>
+              </div>
+            </div>
+            </div>
+        </div>
+      </div>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-8 pl-0" id="trailer-card">
+      <!--Trailer-->
+      <div class="card text-white">
+        <img class="card-img img-fluid" style="overflow: hidden;" id="card-image" src="" alt="">
+        <div class="card-img-overlay d-flex justify-content-center">
+          <a href="#" class="nav-link align-self-center"  data-toggle="modal" data-target="#loginModa">
+            <i class="fa fa-play fa-3x"></i></a> 
+              </div>      
+        </div>
+        </div>
+    <!--popular Movies-->
+    <div class="col-md-4 d-none d-md-block">
+       <div class="card">
+         <div class="card-header">
+          <h2 id="movie-name-head">Popular Movies</h2>
+         </div>
+         <div class="card-body p-0 exp">
+           <ul class="list-group pl-0">
+             <li class="list-group-item" id="list-item-1">
+               <div class="d-flex justify-content-between">
+                   <div class="list-movie list-content-1" style="overflow-x:hidden;"></div>
+               <div>
+                   <div class="stars-outer">
+                     <div class="stars-inner" id="seconstar">
+                     </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+             <li class="list-group-item" id="list-item-2">
+              <div class="d-flex justify-content-between">
+                <div class="list-movie list-content-1" style="overflow-x:hidden;"></div>
+            <div>
+                <div class="stars-outer">
+                  <div class="stars-inner" id="seconstar">
+                  </div>
+               </div>
+             </div>
+           </div>
+             </li>
+             <li class="list-group-item" id="list-item-3">
+              <div class="d-flex justify-content-between">
+                <div class="list-movie list-content-1" style="overflow-x:hidden;"></div>
+            <div>
+                <div class="stars-outer">
+                  <div class="stars-inner" id="seconstar">
+                  </div>
+               </div>
+             </div>
+           </div>
+             </li>
+             <li class="list-group-item" id="list-item-4">
+              <div class="d-flex justify-content-between">
+                <div class="list-movie list-content-1" style="overflow-x:hidden;"></div>
+            <div>
+                <div class="stars-outer">
+                  <div class="stars-inner" id="seconstar">
+                  </div>
+               </div>
+             </div>
+           </div>
+             </li>
+             <li class="list-group-item" id="list-item-5">
+              <div class="d-flex justify-content-between">
+                <div class="list-movie list-content-1" style="overflow-x:hidden;"></div>
+            <div>
+                <div class="stars-outer">
+                  <div class="stars-inner" id="seconstar">
+                  </div>
+               </div>
+             </div>
+           </div>
+             </li>
+             <li class="list-group-item" id="list-item-6">
+              <div class="d-flex justify-content-between">
+                <div class="list-movie list-content-1" style="overflow-x:hidden;"></div>
+            <div>
+                <div class="stars-outer">
+                  <div class="stars-inner" id="seconstar">
+                  </div>
+               </div>
+             </div>
+           </div>
+             </li>
+             <li class="list-group-item" id="list-item-7">
+              <div class="d-flex justify-content-between">
+                <div class="list-movie list-content-1" style="overflow-x:hidden;"></div>
+            <div>
+                <div class="stars-outer">
+                  <div class="stars-inner" id="seconstar">
+                  </div>
+               </div>
+             </div>
+           </div>
+             </li>
+             <li class="list-group-item" id="list-item-8">
+              <div class="d-flex justify-content-between">
+                <div class="list-movie list-content-1" style="overflow-x:hidden;"></div>
+            <div>
+                <div class="stars-outer">
+                  <div class="stars-inner" id="seconstar">
+                  </div>
+               </div>
+             </div>
+           </div>
+             </li>
+             <li class="list-group-item" id="list-item-9">
+              <div class="d-flex justify-content-between">
+                <div class="list-movie list-content-1" style="overflow-x:hidden;"></div>
+            <div>
+                <div class="stars-outer">
+                  <div class="stars-inner" id="seconstar">
+                  </div>
+               </div>
+             </div>
+           </div>
+             </li>
+            </ul>
+         </div>
+       </div>   
+    </div>
+    </div>
+    </div>
+    <!--Movie Info-->
+    <section class="p-2" id="movie-info">
+      <h2 id="movie-name-head">Movie Info</h2>
+      <div class="row">
+        <div class="col px-5">
+          <h3>Synopsis</h3>
+          <p class="lead" id="Movie-info-synopsis"></p>
+            <div class="container">
+              <ul class="list-group-flush">
+                <li class="list-group-item">
+                  <strong>Name:</strong><p style="display: inline;padding-left: 10px;" id="Movie-info-name"></p>
+                </li>
+                <li class="list-group-item">
+                  <strong><i class="fa fa-calendar-alt"></i> :</strong><p style="display: inline;padding-left: 10px;" id="Movie-info-date"></p>
+                </li>
+                <li class="list-group-item">
+                  <strong>Genre:</strong><p style="display: inline;padding-left: 10px;" id="Movie-info-genre"></p>
+                </li>
+                <!--<li class="list-group-item">
+                  <strong>Director:</strong><p style="display: inline;padding-left: 10px;" id="Movie-info-director"></p>
+                </li>-->
+                <li class="list-group-item">
+                  <strong>Runtime:</strong><p style="display: inline;padding-left: 10px;" id="Movie-info-runtime"></p>
+                </li>
+                <li class="list-group-item">
+                  <strong>Rating:</strong><p style="display: inline;padding-left: 10px;"
+                   id="Movie-info-rating1">
+                   <div class="stars-outer">
+                    <div class="stars-inner" id="ratingstar">
+                    </div>
+                  </div>
+                  </p>
+                </li>
+                <li class="list-group-item">
+                  <strong>Where to watch:</strong><p style="display: inline;padding-left: 10px;" id="Movie-p-watch">
+                  <a href="" class="d-inline pl-0" target="_blank" id="Movie-info-watch">Click here <i class="fa fa-link" title="link"></i></a></p>
+                </li>
+              </ul>
+              <span></span>
+         </div>
+       </div>
+      </div>
+    </section>
+    <!--user review-->
+    <section class="py-1" id="user-review">
+      <h2 id="movie-name-head">Your Review</h2>
+      <div class="row">
+      <div class="col-md-6">
+      <div class="card" style="border: 0px;">
+      <div class="card-body">
+        <div class="form-group">
+        <!--<div class="stars-outer">
+          <div class="stars-inner" id="firststar">
+          </div>
+        </div>-->
+        <span class="outer-one" id="star1">
+          <span class="inner-one" id="inner1"></span>
+        </span>
+        <span class="outer-one" id="star2">
+          <span class="inner-one" id="inner2"></span>
+        </span>
+        <span class="outer-one" id="star3">
+          <span class="inner-one" id="inner3"></span>
+        </span>
+        <span class="outer-one" id="star4">
+          <span class="inner-one" id="inner4"></span>
+        </span>
+        <span class="outer-one" id="star5">
+          <span class="inner-one" id="inner5"></span>
+        </span>
+        </div>
+        <div class="form-group">
+          <textarea class="form-control bg-light" row="5" placeholder="Your Review About Movie" id="userreviewbox"></textarea>
+        </div>
+        </div>
+        <button class="btn btn-primary ml-auto mr-2" id="userreview">Submit</button>
+      </div>
+      </div>
+    </div>
+    </section>
+    <!--Cast-->
+    <section class="py-2" id="cast">
+      <h2 id="movie-name-head">Cast</h2>
+      <div class="container-fluid">
+      <div class="row p-5" id="cast-row">
+        <div class="col-md-2 col-xl-2 col-sm-4 col-6" id="cast-1">
+          <img src="" class="img-fluid" id="cast-image-1">
+          <div class="cast-info cast-info-1">
+          <strong style="display: inline;white-space: initial;word-wrap: break-word;" id="first-name"></strong>
+           <strong style="display: inline;white-space: initial;word-wrap: break-word;" id="last-name"></strong>
+          <br>
+          <small  style="display: inline;white-space: initial;word-wrap: break-word;" id="position"></small>
+         </div>
+         </div>
+         <div class="col-md-2 col-xl-2 col-sm-4 col-6" id="cast-2">
+          <img src="" class="img-fluid" id="cast-image-2">
+          <div class="cast-info cast-info-2">
+          <strong style="display: inline;white-space: initial;word-wrap: break-word;" id="first-name"></strong>
+           <strong style="display: inline;white-space: initial;word-wrap: break-word;" id="last-name"></strong>
+           <br>
+           <small  style="display: inline;white-space: initial;word-wrap: break-word;" id="position"></small>
+         </div>
+         </div>
+         <div class="col-md-2 col-xl-2 col-sm-4 col-6" id="cast-3">
+          <img src="" class="img-fluid" id="cast-image-3">
+          <div class="cast-info cast-info-3">
+          <strong style="display: inline;white-space: initial;word-wrap: break-word;" id="first-name"></strong>
+           <strong style="display: inline;white-space: initial;word-wrap: break-word;" id="last-name"></strong>
+           <br>
+           <small  style="display: inline;white-space: initial;word-wrap: break-word;" id="position"></small>
+         </div>
+         </div>
+         <div class="col-md-2 col-xl-2 col-sm-4 col-6" id="cast-4">
+          <img src="" class="img-fluid" id="cast-image-4">
+          <div class="cast-info cast-info-4">
+          <strong style="display: inline;white-space: initial;word-wrap: break-word;" id="first-name"></strong>
+           <strong style="display: inline;white-space: initial;word-wrap: break-word;" id="last-name"></strong>
+           <br>
+           <small  style="display: inline;white-space: initial;word-wrap: break-word;" id="position"></small>
+         </div>
+         </div>
+         <div class="col-md-2 col-xl-2 col-sm-4 col-6" id="cast-5">
+          <img src="" class="img-fluid" id="cast-image-5">
+          <div class="cast-info cast-info-5">
+          <strong style="display: inline;white-space: initial;word-wrap: break-word;" id="first-name"></strong>
+           <strong style="display: inline;white-space: initial;word-wrap: break-word;" id="last-name"></strong>
+           <br>
+           <small  style="display: inline;white-space: initial;word-wrap: break-word;" id="position"></small>
+         </div>
+         </div>
+         <div class="col-md-2 col-xl-2 col-sm-4 col-6" id="cast-6">
+          <img src="" class="img-fluid" id="cast-image-6">
+          <div class="cast-info cast-info-6">
+          <strong style="display: inline;white-space: initial;word-wrap: break-word;" id="first-name"></strong>
+           <strong style="display: inline;white-space: initial;word-wrap: break-word;" id="last-name"></strong>
+           <br>
+           <small  style="display: inline;white-space: initial;word-wrap: break-word;" id="position"></small>
+         </div>
+         </div>
+      </div>
+      </div>
+    </section>
+    <section style="margin-bottom: 10px!important;" id="similarsection">
+      <div class="container-fluid">
+        <div>
+          <h2 id="movie-name-head">Similar Movies</h2>
+        </div>
+        <div class="row" id="movie-row">
+          <div class="px-3 coll" id="movie-image-1">
+            <div class="card colla">
+              <img src="" class="card-img movie-img-1" data-id="hai bro jjo">
+            </div>
+            <p class="lead movie-name-1" id="movie-name" data-id="hai bro jjo"></p>
+            <div class="stars-outer">
+              <div class="stars-inner" id="e1star">
+              </div>
+            </div>
+          </div>
+          <div class="px-3 coll" id="movie-image-2">
+            <div class="card colla">
+              <img src="" class="card-img movie-img-2" >
+            </div>
+            <p class="lead movie-name-2" id="movie-name"></p>
+            <div class="stars-outer">
+              <div class="stars-inner" id="e2star">
+              </div>
+            </div>
+          </div>
+          <div class="px-3 coll" id="movie-image-3">
+            <div class="card colla">
+              <img src="" class="card-img movie-img-3" >
+            </div>
+            <p class="lead movie-name-3" id="movie-name"></p>
+            <div class="stars-outer">
+              <div class="stars-inner" id="e3star">
+              </div>
+            </div>
+          </div>
+          <div class="px-3 coll" id="movie-image-4">
+            <div class="card colla">
+              <img src="" class="card-img movie-img-4" >
+            </div>
+            <p class="lead movie-name-4" id="movie-name"></p>
+            <div class="stars-outer">
+              <div class="stars-inner" id="e4star">
+              </div>
+            </div>
+          </div>
+          <div class="px-3 coll" id="movie-image-5">
+            <div class="card colla">
+              <img src="" class="card-img movie-img-5" >
+            </div>
+            <p class="lead movie-name-5" id="movie-name"></p>
+            <div class="stars-outer">
+              <div class="stars-inner" id="e5star">
+              </div>
+            </div>
+          </div>
+          <div class="px-3 coll" id="movie-image-6">
+            <div class="card colla">
+              <img src="" class="card-img movie-img-6" >
+            </div>
+            <p class="lead movie-name-6" id="movie-name"></p>
+            <div class="stars-outer">
+              <div class="stars-inner" id="e6star">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!--Reviews-->
+    <section class="py-1" id="recentreviews">
+      <h2 id="movie-name-head">Recent Reviews</h2>
+      <div class="container" id="reviewcontainer">
+             </div>
+    </section>
+    <!--Trailer Modal-->
+    <div class="modal fade" id="loginModa">
+      <div class="modal-dialog" id="vedio-play-dialog">
+        <div class="modal-content">
+          <div class="modal-body p-0" id="vedio-play-body">
+            <button class="btn-danger bg-light close ml-auto" data-dismiss="modal" style="position: absolute;">&times;</button>
+            <iframe width="100%" height="315"  src="" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <!--sign in modal-->
+  <div class="modal" id="loginsignup">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-body" id="output">
+           YOU SHOULD SIGN IN
+        </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+        crossorigin="anonymous"></script>
+        <script src="movie-details.js"></script>
+</body>
+</html>

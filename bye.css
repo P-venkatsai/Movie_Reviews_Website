@@ -1,0 +1,23 @@
+html,body
+{
+    height: 100%;
+}
+.row
+{
+    position: relative;
+}
+#bar-graph
+{
+    border-bottom: 2px solid black;
+}
+@media (max-width:576px)
+{
+    .row
+    {
+        width: 100%!important;
+    }
+}
+@keyframes example {
+    from {height: 100%;}
+    to {height: 0%;}
+  }
